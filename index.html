@@ -568,6 +568,12 @@ input{font:inherit}
 .v3 .sec-h::before,.v3 .sec-h::after{flex:0 0 46px;min-width:0;height:12px}
 .v3 .sec-h::before{background:radial-gradient(circle at 5px 50%,rgba(255,210,63,.45) 0 3.5px,transparent 4px),radial-gradient(circle at 22px 50%,#3390EC 0 4px,transparent 4.5px),radial-gradient(circle at 40px 50%,#FFD23F 0 5.5px,transparent 6px)}
 .v3 .sec-h::after{background:radial-gradient(circle at 6px 50%,#FFD23F 0 5.5px,transparent 6px),radial-gradient(circle at 24px 50%,#3390EC 0 4px,transparent 4.5px),radial-gradient(circle at 41px 50%,rgba(255,210,63,.45) 0 3.5px,transparent 4px)}
+
+/* ---------- final CTA colors: info blue · buy yellow ---------- */
+.v3 .b4-btns .b,
+.v3 .fs-btns .b.yel{background:#FFD23F;color:#15172A}
+.v3 .b4-btns .b.alt,
+.v3 .fs-btns .b{background:#3390EC;color:#FFFFFF}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 
@@ -604,7 +610,7 @@ input{font:inherit}
           </div>
           <div class="b4-buy">
             <div class="b4-top"><span class="b4-price">880 000 <em>so‘m</em></span><span class="b4-per">1 yil uchun</span></div>
-            <div class="b4-btns" id="heroCtaM"><button class="b" type="button" data-open="buy">Sotib olish</button><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
+            <div class="b4-btns" id="heroCtaM"><a class="b" href="https://t.me/SelfEnguzbot" data-tg target="_blank" rel="noopener">Sotib olish</a><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
           </div>
         </div>
       </div>
@@ -644,7 +650,7 @@ input{font:inherit}
               <span class="err" data-err="name"></span>
               <label class="fld"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>+998</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label>
               <span class="err" data-err="phone"></span>
-              <div class="fs-btns"><button class="b yel" type="submit" data-intent="info">Ma’lumot olish</button><button class="b" type="submit" data-intent="buy">Sotib olish</button></div>
+              <div class="fs-btns"><button class="b" type="submit" data-intent="info">Ma’lumot olish</button><button class="b yel" type="submit" data-intent="buy">Sotib olish</button></div>
               <p class="form-err" data-err="form"></p>
               <p class="form-foot"><svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.</p>
             </form>
