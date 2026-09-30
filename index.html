@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SelfEng - a creative workspace for building, remixing and shipping visual stories."
+    />
+    <meta name="theme-color" content="#03142f" />
+    <title>SelfEng - Engineered for motion</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260929-rating-podium-3d-final-2" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+        <path d="m15 18-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="m9 7 8 5-8 5V7Z" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-pause" viewBox="0 0 24 24">
+        <path d="M9 7v10M15 7v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-sliders" viewBox="0 0 24 24">
+        <path d="M4 7h10M18 7h2M4 17h3M11 17h9M14 4v6M8 14v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="M12 2.5 13.8 9l6.5 1.8-6.5 1.8L12 19l-1.8-6.4-6.5-1.8L10.2 9 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+      </symbol>
+    </svg>
+
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <div class="page-loader" data-page-loader aria-hidden="true">
+      <div class="loader-time-wrap is-top">
+        <span data-loader-time="cest">00:00:00 AM CEST</span>
+        <span data-loader-time="gst">00:00:00 AM GST</span>
+      </div>
+      <div class="loader-brand-wrap">
+        <div class="loader-brand">
+          <img src="assets/selfeng-logo.png?v=20260929-selfeng-logo" alt="" />
+        </div>
+      </div>
+      <div class="loader-time-wrap is-bottom">
+        <span data-loader-time="current">00:00:00 AM GMT+5</span>
+        <span data-loader-time="aest">00:00:00 AM AEST</span>
+      </div>
+    </div>
+
+    <header class="site-header" data-header>
+      <a class="skip-link" href="#main">Skip to content</a>
+      <div class="container header-inner">
+        <a class="brand magnetic" href="#top" aria-label="SelfEng home">
+          <img src="assets/selfeng-logo.png?v=20260929-selfeng-logo" alt="SelfEng" />
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#product">Product</a>
+          <a href="#blocks">Blocks</a>
+          <a href="#templates">Templates</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="login-link" href="#pricing">Login</a>
+          <a class="header-cta magnetic" href="#pricing">
+            <span>Try for free</span>
+          </a>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+          <span></span><span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu" data-mobile-menu>
+        <nav aria-label="Mobile navigation">
+          <a href="#product"><span>01</span>Product</a>
+          <a href="#blocks"><span>02</span>Blocks</a>
+          <a href="#templates"><span>03</span>Templates</a>
+          <a href="#pricing"><span>04</span>Pricing</a>
+        </nav>
+        <div class="mobile-menu-foot">
+          <a class="mobile-social" href="#top">Instagram</a>
+          <a class="mobile-social" href="#top">YouTube</a>
+          <a class="mobile-social" href="#top">X</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero moto-hero" id="top">
+        <div class="hero-card-scene" aria-hidden="true">
+          <div class="placeholder-card" data-placeholder-card>
+            <img
+              src="assets/photos/bekzod-botirov-hero.jpg?v=20260929-bekzod-undo2"
+              alt=""
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+
+        <div class="container hero-content">
+          <div class="hero-header-top">
+            <h1 class="hero-title hero-intro">
+              Ismim Bekzod Botirov. <strong>12 yildan beri</strong> ingliz tilidan dars beraman.
+            </h1>
+          </div>
+          <div class="hero-btn-wrap">
+            <a class="hero-cta magnetic" href="#product">
+              <span>Apply for access</span>
+              <svg><use href="#icon-arrow-up-right"></use></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-shadow" aria-hidden="true"></div>
+      </section>
+
+      <section class="logo-ticker" aria-label="Trusted teams">
+        <div class="container">
+          <p class="caption reveal">Creative teams build their best work here</p>
+          <div class="ticker-spacer"></div>
+        </div>
+        <div class="ticker-window">
+          <div class="ticker-track" data-ticker>
+            <div class="ticker-set">
+              <span>Listening</span><i></i>
+              <span>Writing</span><i></i>
+              <span>Speaking</span><i></i>
+              <span>Gramatika</span><i></i>
+              <span>Reading</span><i></i>
+            </div>
+            <div class="ticker-set" aria-hidden="true">
+              <span>Listening</span><i></i>
+              <span>Writing</span><i></i>
+              <span>Speaking</span><i></i>
+              <span>Gramatika</span><i></i>
+              <span>Reading</span><i></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="statement-section">
+        <div class="statement-sticky">
+          <div class="container">
+            <h2 class="statement-text" data-highlight>
+              🚀 Ingliz tilini 0 dan B2 darajagacha o‘rganib, erkin gapirishni xohlaysizmi?
+            </h2>
+
+            <div class="level-reveal" data-level-reveal aria-label="A1 dan B2 gacha darajalar">
+              <span class="level-badge level-badge-a1" data-level>A1</span>
+              <span class="level-badge level-badge-a2" data-level>A2</span>
+              <span class="level-badge level-badge-b1" data-level>B1</span>
+              <span class="level-badge level-badge-b2" data-level>B2</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story story-library" id="blocks">
+        <div class="container">
+          <div class="grid">
+            <div class="story-copy grid-six reveal">
+              <p class="caption">There is a tool for that</p>
+              <span class="copy-gap"></span>
+              <h2><strong>General English</strong> dasturi bo‘yicha <strong>680+ videodarslar</strong></h2>
+            </div>
+
+            <div class="library-card grid-five reveal">
+              <div class="library-topbar">
+                <span>Library / Text Blocks</span>
+                <div class="window-dots"><i></i><i></i><i></i></div>
+              </div>
+              <div class="library-search">
+                <svg><use href="#icon-spark"></use></svg>
+                <span>Search blocks</span>
+                <kbd>CMD K</kbd>
+              </div>
+              <div class="lesson-marquee" aria-label="General English video darslari">
+                <div class="lesson-track">
+                  <div class="lesson-set">
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%201.png?v=20260929-video-lessons" alt="General English video darsi 1" loading="lazy" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%202.png?v=20260929-video-lessons" alt="General English video darsi 2" loading="lazy" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%203.png?v=20260929-video-lessons" alt="General English video darsi 3" loading="lazy" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%204.png?v=20260929-video-lessons" alt="General English video darsi 4" loading="lazy" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%205.png?v=20260929-video-lessons" alt="General English video darsi 5" loading="lazy" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%206.png?v=20260929-video-lessons" alt="General English video darsi 6" loading="lazy" /></div>
+                  </div>
+                  <div class="lesson-set" aria-hidden="true">
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%201.png?v=20260929-video-lessons" alt="" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%202.png?v=20260929-video-lessons" alt="" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%203.png?v=20260929-video-lessons" alt="" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%204.png?v=20260929-video-lessons" alt="" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%205.png?v=20260929-video-lessons" alt="" /></div>
+                    <div class="lesson-frame"><img src="assets/photos/Video%20screenshot%206.png?v=20260929-video-lessons" alt="" /></div>
+                  </div>
+                </div>
+              </div>
+              <div class="library-footer">
+                <span>28 blocks</span>
+                <span>Updated today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story story-controls">
+        <div class="container">
+          <div class="grid story-controls-grid">
+            <div class="control-stage grid-six reveal">
+              <div class="control-stage-top">
+                <span>3D Carousel</span>
+                <div class="control-buttons"><i></i><i></i><i></i></div>
+              </div>
+              <div class="control-preview">
+                <div class="preview-card preview-card-left"><img src="assets/photos/Audio%20pic.jpg?v=20260929-audio-controls" alt="Audio darslar" /></div>
+                <div class="preview-card preview-card-center"><img src="assets/photos/audio%20pic%202.webp?v=20260929-audio-controls" alt="Audio darslar 2" /></div>
+                <div class="preview-card preview-card-right"><img src="assets/photos/creative-focus.jpg" alt="Noutbukda yozayotgan o‘quvchi" /></div>
+              </div>
+              <div class="control-range">
+                <span>Radius</span>
+                <div class="range-line"><i style="--range: 72%"></i></div>
+                <strong>72</strong>
+              </div>
+            </div>
+
+            <div class="story-copy grid-five reveal">
+              <p class="caption">Infinitely customizable</p>
+              <span class="copy-gap"></span>
+              <h2>Audio darslar orqali eshitib yozing</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-toolkit">
+        <div class="toolkit-sticky">
+          <div class="toolkit-markers" aria-hidden="true">
+            <i class="toolkit-marker marker-one"></i>
+            <i class="toolkit-marker marker-two"></i>
+            <i class="toolkit-marker marker-three"></i>
+            <i class="toolkit-marker marker-four"></i>
+            <i class="toolkit-marker marker-five"></i>
+            <i class="toolkit-marker marker-six"></i>
+            <i class="toolkit-marker marker-seven"></i>
+          </div>
+          <div class="container">
+            <div class="grid toolkit-grid">
+              <div class="toolkit-copy grid-six reveal">
+                <p class="caption">Your new creative toolkit</p>
+                <span class="copy-gap"></span>
+                <h2>Reytingda birinchi bo‘lishga harakat qiling</h2>
+                <p class="toolkit-note">
+                  Raqobat bor joyda o‘sish bor
+                </p>
+              </div>
+
+              <div class="toolkit-stage grid-six reveal">
+                <div class="rating-podium" data-rating-podium aria-label="Reyting o‘rinlari">
+                  <div class="podium-place podium-third" data-rating-place><span>3</span></div>
+                  <div class="podium-place podium-second" data-rating-place><span>2</span></div>
+                  <div class="podium-place podium-first" data-rating-place><span>1</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-highlight feature-selfingo" id="product">
+        <div class="container">
+          <div class="grid highlight-grid">
+            <div class="highlight-stage selfingo-stage grid-six reveal">
+              <img
+                class="selfingo-robot"
+                src="assets/photos/Selfingo%203.jpg?v=20260929-selfingo3"
+                alt="Selfingo 3"
+              />
+            </div>
+
+            <div class="highlight-copy grid-six reveal">
+              <p class="caption selfingo-kicker">Selfingo AI</p>
+              <span class="copy-gap"></span>
+              <h2>Selfingo <span>sizning AI ustozingiz</span></h2>
+              <p class="selfingo-description">
+                Savolingizga 24/7 javob beradigan AI ustoz.
+                <strong>IELTS 9.0</strong> olgan ;)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section" id="templates">
+        <div class="container">
+          <div class="gallery-head reveal">
+            <p class="caption">Templates for every kind of story</p>
+            <span class="copy-gap"></span>
+            <h3>Selfingo bilan nimalar qila olasiz</h3>
+          </div>
+
+          <div class="gallery-shell reveal">
+            <div class="gallery-track" data-gallery-track>
+              <div class="gallery-set">
+                <a class="template-card" href="#pricing">
+                  <img src="assets/photos/creative-work.jpg" alt="Grammatika" />
+                  <div class="template-overlay"><span>Selfingo</span><strong>Grammatika</strong></div>
+                </a>
+                <a class="template-card" href="#pricing">
+                  <img src="assets/photos/studio-desk.jpg" alt="Writing" />
+                  <div class="template-overlay"><span>Selfingo</span><strong>Writing</strong></div>
+                </a>
+                <a class="template-card" href="#pricing">
+                  <img src="assets/photos/creative-focus.jpg" alt="Tekshirish" />
+                  <div class="template-overlay"><span>Selfingo</span><strong>Tekshirish</strong></div>
+                </a>
+                <a class="template-card" href="#pricing">
+                  <img src="assets/photos/learning-desk.jpg" alt="Baholash" />
+                  <div class="template-overlay"><span>Selfingo</span><strong>Baholash</strong></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="telegram-promo" id="pricing">
+        <div class="container">
+          <a
+            class="telegram-promo-link reveal"
+            href="https://t.me/SelfEnguzbot"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="telegram-promo-copy">
+              <span class="caption">Selfingo AI</span>
+              <strong>Telegram botga o‘tish</strong>
+            </span>
+            <span class="telegram-promo-arrow" aria-hidden="true">
+              <svg><use href="#icon-arrow-up-right"></use></svg>
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column reveal">
+            <p>Explore</p>
+            <a href="#product">Product</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#top">Get in touch</a>
+          </div>
+          <div class="footer-column reveal">
+            <p>Socials</p>
+            <a href="#top">Instagram</a>
+            <a href="#top">YouTube</a>
+            <a href="#top">X</a>
+            <a href="#top">LinkedIn</a>
+            <a href="#top">Pinterest</a>
+          </div>
+          <div class="footer-column reveal">
+            <p>Resources</p>
+            <a href="#blocks">Blocks</a>
+            <a href="#templates">Templates</a>
+          </div>
+          <div class="footer-column reveal">
+            <p>Legal</p>
+            <a href="#top">Privacy Policy</a>
+            <a href="#top">Cookie Policy</a>
+            <a href="#top">Terms of Service</a>
+          </div>
+        </div>
+
+        <a class="footer-wordmark" href="#top" aria-label="SelfEng home">
+          <img src="assets/selfeng-logo.png?v=20260929-selfeng-logo" alt="SelfEng" />
+        </a>
+
+        <div class="footer-bottom">
+          <p>Copyright &copy; <span data-year></span> SelfEng.</p>
+          <p>Built for motion.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+    <script src="script.js?v=20260929-rating-podium-3d-final-2"></script>
+  </body>
+</html>
