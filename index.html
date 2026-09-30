@@ -769,8 +769,7 @@ const CONFIG = {
         }
         const src = form.dataset.source || "";
         const isVideo = /video/.test(src);
-        const demo = CONFIG.leadEndpoint ? "" : '<span class="demo">Namuna rejimi: forma hali serverga ulanmagan</span>';
-        form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>' + (!isVideo ? 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.' : CONFIG.youtubeUrl ? 'Arizangiz qabul qilindi. Tanishuv videoni hoziroq ko‘rishingiz mumkin.' : 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz va tanishuv videoni yuboramiz.') + '</p>' + (isVideo && CONFIG.youtubeUrl ? '<a class="b" href="' + esc(CONFIG.youtubeUrl) + '" target="_blank" rel="noopener">Videoni ko‘rish</a>' : '') + demo + '</div>';
+        form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>' + (!isVideo ? 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.' : CONFIG.youtubeUrl ? 'Arizangiz qabul qilindi. Tanishuv videoni hoziroq ko‘rishingiz mumkin.' : 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz va tanishuv videoni yuboramiz.') + '</p>' + (isVideo && CONFIG.youtubeUrl ? '<a class="b" href="' + esc(CONFIG.youtubeUrl) + '" target="_blank" rel="noopener">Videoni ko‘rish</a>' : '') + '</div>';
       } catch (err) {
         btn.disabled = false;
         btn.textContent = label;
