@@ -170,6 +170,9 @@ input{font:inherit}
 .v3 .t-video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .v3 .t-video:hover img{transform:scale(1.03)}
 .v3 .t-video::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,12,30,.8),rgba(10,12,30,0) 48%)}
+.v3 .t-video-embed{cursor:default}
+.v3 .t-video-embed::after{display:none}
+.v3 .t-video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .v3 .vname{position:absolute;left:22px;bottom:56px;z-index:2;font-weight:900;font-size:20px;line-height:1.2}
 .v3 .vname small{display:block;font-weight:700;font-size:14px;opacity:.85}
 .v3 .vbar{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;display:flex;align-items:center;gap:12px;font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
@@ -608,7 +611,7 @@ input{font:inherit}
           </div>
           <div class="b4-buy">
             <div class="b4-top"><span class="b4-price">880 000 <em>so‘m</em></span><span class="b4-per">1 yil uchun</span></div>
-            <div class="b4-btns" id="heroCtaM"><a class="b" href="https://t.me/selfengsupport" data-tg target="_blank" rel="noopener">Sotib olish</a><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
+            <div class="b4-btns" id="heroCtaM"><a class="b" href="https://t.me/SelfEnguzbot" data-tg target="_blank" rel="noopener">Sotib olish</a><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
           </div>
         </div>
       </div>
@@ -649,7 +652,7 @@ input{font:inherit}
               <label class="fld"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>+998</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label>
               <span class="err" data-err="phone"></span>
               <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px" value="">
-              <div class="fs-btns"><button class="b" type="submit" data-intent="info">Ma’lumot olish</button><button class="b yel" type="submit" data-intent="buy">Sotib olish</button></div>
+              <div class="fs-btns"><button class="b" type="submit" data-intent="info">Ma’lumot olish</button><a class="b yel" href="https://t.me/SelfEnguzbot" data-tg target="_blank" rel="noopener">Sotib olish</a></div>
               <p class="form-err" data-err="form"></p>
               <p class="form-foot"><svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.</p>
             </form>
@@ -674,7 +677,7 @@ input{font:inherit}
           <div class="fwrap"><label class="fld"><input id="m-name" name="name" type="text" autocomplete="given-name" placeholder="Ismingiz" aria-label="Ismingiz" value=""></label><span class="err" data-err="name"></span></div>
           <div class="fwrap"><label class="fld"><span>+998</span><input id="m-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label><span class="err" data-err="phone"></span></div>
           <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px" value="">
-          <div class="row"><button class="b" type="submit" id="m-submit">Videoni olish</button><a class="b alt" data-tg href="https://t.me/selfengsupport" target="_blank" rel="noopener">Telegram</a></div>
+          <div class="row"><button class="b" type="submit" id="m-submit">Videoni olish</button><a class="b alt" data-tg href="https://t.me/SelfEnguzbot" target="_blank" rel="noopener">Telegram</a></div>
           <p class="form-err" data-err="form"></p>
         </form>
       </div>
@@ -686,8 +689,8 @@ input{font:inherit}
 /* ===== Sozlamalar: saytga qo‘yganda shu ikki qatorni to‘ldiring ===== */
 const CONFIG = {
   leadEndpoint: "https://z993jvdj4xcjn1qi26dgy2i2.5.9.149.59.sslip.io/landing-leads",
-  telegramUrl: "https://t.me/selfengsupport",
-  youtubeUrl: "https://youtu.be/jkKgSbUv1E4"   // tanishuv videosi: ariza yuborilgach "Videoni ko‘rish" tugmasi shu havolaga olib boradi
+  telegramUrl: "https://t.me/SelfEnguzbot",
+  youtubeEmbedUrl: "https://www.youtube.com/embed/jkKgSbUv1E4"
 };
 
 (function () {
@@ -698,7 +701,6 @@ const CONFIG = {
 
   const MODES = {
     video: { kick: "", title: "Tanishuv videoni oling", sub: "Kurs bo‘yicha to‘liq 4 daqiqalik tanishuv video tayyorladim. Videoni olish uchun o‘zingiz haqingizda ma’lumot qoldiring.", btn: "Videoni olish" },
-    buy: { kick: "880 000 so‘m · 1 yil uchun", title: "Kursni sotib olish", sub: "Ism va telefon raqamingizni qoldiring. Siz bilan tez orada bog‘lanamiz.", btn: "Arizani yuborish" },
     enroll: { kick: "Bepul konsultatsiya", title: "Kurs haqida ma’lumot oling", sub: "Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.", btn: "Ma’lumot olish" }
   };
 
@@ -739,6 +741,16 @@ const CONFIG = {
   };
   const esc = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  function showIntroVideo() {
+    const player = $(".t-video");
+    if (!player || !CONFIG.youtubeEmbedUrl) return;
+    const embed = document.createElement("div");
+    embed.className = player.className + " t-video-embed";
+    embed.innerHTML = '<iframe src="' + esc(CONFIG.youtubeEmbedUrl + "?autoplay=1&rel=0") + '" title="SelfEng kursi bilan tanishuv videosi" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    player.replaceWith(embed);
+    embed.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   function wireForm(form) {
     const name = $("input[name=name]", form);
     const phone = $("input[name=phone]", form);
@@ -769,7 +781,12 @@ const CONFIG = {
         }
         const src = form.dataset.source || "";
         const isVideo = /video/.test(src);
-        form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>' + (!isVideo ? 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.' : CONFIG.youtubeUrl ? 'Arizangiz qabul qilindi. Tanishuv videoni hoziroq ko‘rishingiz mumkin.' : 'Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz va tanishuv videoni yuboramiz.') + '</p>' + (isVideo && CONFIG.youtubeUrl ? '<a class="b" href="' + esc(CONFIG.youtubeUrl) + '" target="_blank" rel="noopener">Videoni ko‘rish</a>' : '') + '</div>';
+        if (isVideo) {
+          showIntroVideo();
+          closeModal();
+          return;
+        }
+        form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.</p></div>';
       } catch (err) {
         btn.disabled = false;
         btn.textContent = label;
