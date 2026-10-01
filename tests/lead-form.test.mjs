@@ -43,3 +43,14 @@ test("video click embeds YouTube without collecting contact information", () => 
   assert.match(html, /allow="autoplay; encrypted-media; picture-in-picture; fullscreen"/);
   assert.doesNotMatch(html, />Videoni ko‘rish<\/a>/);
 });
+
+test("Meta Pixel tracks page views with the configured pixel ID", () => {
+  assert.match(html, /connect\.facebook\.net\/en_US\/fbevents\.js/);
+  assert.match(html, /fbq\('init', '2148920235703445'\)/);
+  assert.match(html, /fbq\('track', 'PageView'\)/);
+  assert.match(
+    html,
+    /facebook\.com\/tr\?id=2148920235703445&amp;ev=PageView&amp;noscript=1/,
+  );
+  assert.doesNotMatch(html, /@url:/);
+});
