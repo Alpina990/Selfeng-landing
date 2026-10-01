@@ -14,8 +14,8 @@ test("lead forms post to the production CRM bridge", () => {
   assert.match(html, /website:\s*form\.elements\.website\.value/);
 });
 
-test("every buy button opens SelfEnguzbot directly", () => {
-  assert.match(html, /telegramUrl:\s*"https:\/\/t\.me\/SelfEnguzbot"/);
+test("every buy button requests the Telegram app directly", () => {
+  assert.match(html, /telegramUrl:\s*"tg:\/\/resolve\?domain=SelfEnguzbot&start=web"/);
   assert.doesNotMatch(html, /data-intent="buy"/);
 
   const buyControls = [...html.matchAll(/<(?:a|button)[^>]*>Sotib olish<\/[^>]+>/g)];
@@ -26,13 +26,16 @@ test("every buy button opens SelfEnguzbot directly", () => {
   }
 });
 
-test("video lead success embeds YouTube in the existing player", () => {
+test("video click embeds YouTube without collecting contact information", () => {
   assert.match(
     html,
     /youtubeEmbedUrl:\s*"https:\/\/www\.youtube\.com\/embed\/jkKgSbUv1E4"/,
   );
   assert.match(html, /function showIntroVideo\(\)/);
-  assert.match(html, /isVideo[\s\S]*showIntroVideo\(\)[\s\S]*closeModal\(\)/);
+  assert.match(html, /data-play-video/);
+  assert.match(html, /\$\$\("\[data-play-video\]"\)\.forEach\(button => button\.addEventListener\("click", showIntroVideo\)\)/);
+  assert.doesNotMatch(html, /data-open="video"/);
+  assert.doesNotMatch(html, /modal-video/);
   assert.match(html, /allow="autoplay; encrypted-media; picture-in-picture; fullscreen"/);
   assert.doesNotMatch(html, />Videoni ko‘rish<\/a>/);
 });
