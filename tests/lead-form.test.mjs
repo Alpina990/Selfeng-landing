@@ -36,6 +36,8 @@ test("video click embeds YouTube without collecting contact information", () => 
   assert.match(html, /\$\$\("\[data-play-video\]"\)\.forEach\(button => button\.addEventListener\("click", showIntroVideo\)\)/);
   assert.doesNotMatch(html, /data-open="video"/);
   assert.doesNotMatch(html, /modal-video/);
+  assert.doesNotMatch(html, /class="vtag"|\.v3 \.vtag/);
+  assert.match(html, /class="play"/);
   assert.match(html, /allow="autoplay; encrypted-media; picture-in-picture; fullscreen"/);
   assert.doesNotMatch(html, />Videoni ko‘rish<\/a>/);
 });
