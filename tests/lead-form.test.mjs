@@ -26,6 +26,14 @@ test("every buy button requests the Telegram app directly", () => {
   }
 });
 
+test("modal Telegram button opens the SelfEng support chat", () => {
+  assert.match(html, /supportUrl:\s*"https:\/\/t\.me\/selfengsupport"/);
+  assert.match(
+    html,
+    /<a class="b alt" data-tg="support" href="https:\/\/t\.me\/selfengsupport"[^>]*>Telegram<\/a>/,
+  );
+});
+
 test("video click embeds YouTube without collecting contact information", () => {
   assert.match(html, /<span class="time">0:00 \/ 6:00<\/span>/);
   assert.doesNotMatch(html, /<span class="time">0:00 \/ 4:00<\/span>/);

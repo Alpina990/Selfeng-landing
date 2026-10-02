@@ -1,0 +1,12 @@
+name = "selfeng-lead-proxy"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Brauzer CORS uchun ruxsat berilgan domen (selfeng.uz).
+# Agar testda boshqa domendan tekshirsangiz, shu yerga qo'shing.
+[vars]
+ALLOWED_ORIGIN = "https://selfeng.uz"
+# BEECRM_AUTH_STYLE = "bearer"  # kerak bo'lsa: "x-api-key" yoki "body"
+
+# API kalit bu faylga YOZILMAYDI — deploy'dan keyin alohida buyruq bilan qo'yiladi:
+#   wrangler secret put BEECRM_API_KEY
