@@ -62,3 +62,11 @@ test("Meta Pixel tracks page views with the configured pixel ID", () => {
   );
   assert.doesNotMatch(html, /@url:/);
 });
+
+test("successful lead submission tracks a Meta Pixel Lead event", () => {
+  const okCheck = html.indexOf('if (!res.ok) throw new Error("HTTP " + res.status);');
+  const leadEvent = html.indexOf('fbq("track", "Lead")');
+
+  assert.ok(okCheck > -1, "the form must still wait for a successful CRM response");
+  assert.ok(leadEvent > okCheck, "the Lead event must fire only after the CRM accepts the lead");
+});

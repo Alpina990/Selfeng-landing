@@ -797,6 +797,7 @@ const CONFIG = {
           const res = await fetch(CONFIG.leadEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) });
           if (!res.ok) throw new Error("HTTP " + res.status);
         }
+        if (typeof fbq === "function") fbq("track", "Lead");
         form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.</p></div>';
       } catch (err) {
         btn.disabled = false;
