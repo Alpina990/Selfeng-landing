@@ -14,13 +14,13 @@ test("lead forms post to the production CRM bridge", () => {
   assert.match(html, /website:\s*form\.elements\.website\.value/);
 });
 
-test("every buy button requests the Telegram app directly", () => {
+test("every free-lesson button requests the Telegram app directly", () => {
   assert.match(html, /telegramUrl:\s*"tg:\/\/resolve\?domain=SelfEnguzbot&start=web"/);
   assert.doesNotMatch(html, /data-intent="buy"/);
 
-  const buyControls = [...html.matchAll(/<(?:a|button)[^>]*>Sotib olish<\/[^>]+>/g)];
-  assert.equal(buyControls.length, 2);
-  for (const [control] of buyControls) {
+  const ctaControls = [...html.matchAll(/<(?:a|button)[^>]*>Bepul dars<\/[^>]+>/g)];
+  assert.equal(ctaControls.length, 2);
+  for (const [control] of ctaControls) {
     assert.match(control, /^<a\b/);
     assert.match(control, /data-tg/);
   }
