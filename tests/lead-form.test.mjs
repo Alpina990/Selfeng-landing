@@ -18,7 +18,7 @@ test("every free-lesson button requests the Telegram app directly", () => {
   assert.match(html, /telegramUrl:\s*"tg:\/\/resolve\?domain=SelfEnguzbot&start=web"/);
   assert.doesNotMatch(html, /data-intent="buy"/);
 
-  const ctaControls = [...html.matchAll(/<(?:a|button)[^>]*>Bepul dars<\/[^>]+>/g)];
+  const ctaControls = [...html.matchAll(/<(?:a|button)[^>]*>BEPUL DARS<\/[^>]+>/g)];
   assert.equal(ctaControls.length, 2);
   for (const [control] of ctaControls) {
     assert.match(control, /^<a\b/);
