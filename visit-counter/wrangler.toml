@@ -1,0 +1,15 @@
+name = "selfeng-visits"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://selfeng.uz"
+
+# Deploydan oldin:
+#   wrangler d1 create selfeng-visits   -> chiqqan database_id ni pastga qo'ying
+#   wrangler d1 execute selfeng-visits --remote --file=schema.sql
+#   wrangler secret put STATS_TOKEN     -> /stats sahifasi uchun parol
+[[d1_databases]]
+binding = "DB"
+database_name = "selfeng-visits"
+database_id = "2b4e1331-f20a-4b58-afed-5066ed1e5262"

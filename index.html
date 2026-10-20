@@ -709,8 +709,21 @@ const CONFIG = {
   leadEndpoint: "https://selfeng.uz/landing-leads/landing-leads",
   telegramUrl: "tg://resolve?domain=SelfEnguzbot&start=web",
   supportUrl: "https://t.me/selfengsupport",
-  youtubeEmbedUrl: "https://www.youtube.com/embed/jkKgSbUv1E4"
+  youtubeEmbedUrl: "https://www.youtube.com/embed/jkKgSbUv1E4",
+  visitEndpoint: "https://selfeng-visits.shohruxaxmedov04.workers.dev/hit"
 };
+
+/* Anonim tashrif hisoblagichi: har sessiyada bir marta, tasodifiy brauzer ID bilan */
+(function () {
+  if (!CONFIG.visitEndpoint) return;
+  try {
+    if (sessionStorage.getItem("se_hit")) return;
+    sessionStorage.setItem("se_hit", "1");
+    let vid = localStorage.getItem("se_vid");
+    if (!vid) { vid = crypto.randomUUID(); localStorage.setItem("se_vid", vid); }
+    navigator.sendBeacon(CONFIG.visitEndpoint, new Blob([JSON.stringify({ vid })], { type: "text/plain" }));
+  } catch (e) {}
+})();
 
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
