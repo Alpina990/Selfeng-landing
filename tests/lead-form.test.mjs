@@ -15,14 +15,15 @@ test("lead forms post to the production CRM bridge", () => {
   assert.match(html, /website:\s*form\.elements\.website\.value/);
 });
 
-test("free-lesson buttons open the form and a saved lead goes straight to the bot", () => {
-  assert.match(html, /telegramUrl:\s*"tg:\/\/resolve\?domain=SelfEnguzbot&start=web"/);
+test("free-lesson buttons open the form and a saved lead opens the bot's t.me page", () => {
+  assert.match(html, /telegramUrl:\s*"https:\/\/t\.me\/SelfEnguzbot\?start=web"/);
+  assert.doesNotMatch(html, /tg:\/\/resolve\?domain=SelfEnguzbot/);
   assert.doesNotMatch(html, /data-intent="buy"/);
 
   const openers = [...html.matchAll(/<button[^>]*data-open-free[^>]*>BEPUL DARS<\/button>/g)];
   assert.equal(openers.length, 2);
   assert.doesNotMatch(html, /<a[^>]*>BEPUL DARS<\/a>/);
-  assert.doesNotMatch(html, /bd-success/);
+  assert.doesNotMatch(html, /bd-success|bd-bot|bd-sent/);
 
   const okCheck = html.indexOf('if (!res.ok) throw new Error("HTTP " + res.status);', html.indexOf('source: "modal-free"'));
   const redirect = html.indexOf("window.location.href = CONFIG.telegramUrl;");
