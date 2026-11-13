@@ -15,16 +15,31 @@ test("lead forms post to the production CRM bridge", () => {
   assert.match(html, /website:\s*form\.elements\.website\.value/);
 });
 
-test("every free-lesson button requests the Telegram app directly", () => {
+test("free-lesson buttons open the form and a saved lead goes straight to the bot", () => {
   assert.match(html, /telegramUrl:\s*"tg:\/\/resolve\?domain=SelfEnguzbot&start=web"/);
   assert.doesNotMatch(html, /data-intent="buy"/);
 
-  const ctaControls = [...html.matchAll(/<(?:a|button)[^>]*>BEPUL DARS<\/[^>]+>/g)];
-  assert.equal(ctaControls.length, 2);
-  for (const [control] of ctaControls) {
-    assert.match(control, /^<a\b/);
-    assert.match(control, /data-tg/);
-  }
+  const openers = [...html.matchAll(/<button[^>]*data-open-free[^>]*>BEPUL DARS<\/button>/g)];
+  assert.equal(openers.length, 2);
+  assert.doesNotMatch(html, /<a[^>]*>BEPUL DARS<\/a>/);
+  assert.doesNotMatch(html, /bd-success/);
+
+  const okCheck = html.indexOf('if (!res.ok) throw new Error("HTTP " + res.status);', html.indexOf('source: "modal-free"'));
+  const redirect = html.indexOf("window.location.href = CONFIG.telegramUrl;");
+  assert.ok(okCheck > -1 && redirect > okCheck, "the redirect happens only after the CRM accepted the lead");
+});
+
+test("the free-lesson form posts source modal-free; Ma’lumot olish keeps its own source", () => {
+  assert.match(html, /source:\s*"modal-free"/);
+  assert.match(html, /<button class="b" type="submit" data-intent="info">Ma’lumot olish<\/button>/);
+  assert.match(html, /form\.dataset\.source = "form-" \+ btn\.dataset\.intent/);
+});
+
+test("the free-lesson form shows a small invalid-phone hint between the phone field and the button", () => {
+  const phone = html.indexOf('id="bdfPhone"');
+  const hint = html.indexOf("Iltimos, to‘g‘ri raqam kiriting");
+  const submit = html.indexOf('id="bdSubmit"');
+  assert.ok(phone > -1 && hint > phone && submit > hint);
 });
 
 test("modal Telegram button opens the SelfEng support chat", () => {

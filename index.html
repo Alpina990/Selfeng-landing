@@ -595,6 +595,43 @@ input{font:inherit}
 .v3 .fs-btns .b.yel{background:#FFD23F;color:#15172A}
 .v3 .b4-btns .b.alt{background:#FFFFFF;color:#15172A}
 .v3 .fs-btns .b{background:#3390EC;color:#FFFFFF}
+/* ---------- Bepul dars modal (from bepul-dars-forma mockup) ---------- */
+.v3 .fs-btns .b[data-intent]{background:#FFFFFF;color:#15172A;box-shadow:0 5px 0 #1F6FB5}
+.v3 .fs-btns .b[data-intent]:hover{box-shadow:0 3px 0 #1F6FB5}
+.bd-overlay{--bd-grad:linear-gradient(135deg,#55a8ee 0%,#3a8ddb 55%,#2f7fcf 100%);--bd-soft:#e3f0fc;--bd-yellow:#ffd257;--bd-ink:#0f1b2d;--bd-danger:#ef4444;
+  position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(15,27,45,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.bd-overlay.open{opacity:1;visibility:visible}
+.bd-modal{position:relative;width:100%;max-width:440px;border-radius:30px;padding:10px;background:var(--bd-soft);box-shadow:0 30px 70px rgba(15,27,45,.25);transform:translateY(20px) scale(.97);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.bd-overlay.open .bd-modal{transform:none}
+.bd-card{border-radius:24px;background:var(--bd-grad);padding:30px 24px 24px;color:#fff;overflow:hidden;position:relative}
+.bd-close{position:absolute;top:14px;right:14px;z-index:2;width:38px;height:38px;border-radius:12px;border:0;cursor:pointer;display:grid;place-items:center;background:rgba(255,255,255,.18);color:#fff;transition:background .2s,transform .2s}
+.bd-close:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
+.bd-head{text-align:center;margin:8px 0 22px;position:relative;z-index:1}
+.bd-head h2{margin:0;font-size:30px;font-weight:900;line-height:1.15;letter-spacing:-.01em;color:#fff}
+.bd-head h2 span{color:var(--bd-yellow)}
+.bd-field{margin-bottom:12px;position:relative;z-index:1}
+.bd-input{position:relative}
+.bd-input svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#8aa0bb;pointer-events:none;transition:color .2s}
+.bd-input input{width:100%;box-sizing:border-box;height:58px;border-radius:16px;border:2px solid transparent;outline:none;padding:0 18px 0 50px;font-family:inherit;font-size:17px;font-weight:700;color:var(--bd-ink);background:#fff;transition:border-color .2s,box-shadow .2s,background .2s}
+.bd-input input::placeholder{color:#9aabc0;font-weight:600}
+.bd-input input:focus{border-color:var(--bd-yellow);box-shadow:0 0 0 4px rgba(255,210,87,.35)}
+.bd-input:focus-within svg{color:#2f80d1}
+.bd-err{display:none;margin:5px 0 0 6px;font-size:12px;font-weight:800;color:#fff}
+.bd-err::before{content:"\26A0\00a0";color:#ffd0d0}
+.bd-field.error .bd-err{display:block}
+.bd-field.error input,.bd-field.error input:focus{border-color:var(--bd-danger);background:#fff1f1;box-shadow:0 0 0 4px rgba(239,68,68,.25)}
+.bd-field.error svg{color:var(--bd-danger)!important}
+.bd-field.shake{animation:bd-shake .4s ease}
+@keyframes bd-shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.bd-submit{position:relative;z-index:1;width:100%;height:60px;margin-top:8px;border-radius:16px;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:.02em;color:var(--bd-ink);background:var(--bd-yellow);box-shadow:0 8px 20px rgba(255,201,58,.45);transition:transform .15s,filter .2s,box-shadow .2s}
+.bd-submit:hover{filter:brightness(1.04)}
+.bd-submit:active{transform:scale(.98)}
+.bd-submit:disabled{opacity:.8;cursor:wait}
+.bd-formerr{position:relative;z-index:1;margin:10px 0 0;text-align:center;font-size:13px;font-weight:800;color:#ffe3e3}
+.bd-formerr:empty{display:none}
+.bd-note{position:relative;z-index:1;text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:rgba(255,255,255,.8)}
+.bd-note svg{display:inline;vertical-align:-2px;margin-right:5px}
+@media (max-width:420px){.bd-card{padding:28px 18px 20px}.bd-head h2{font-size:25px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 
@@ -631,7 +668,7 @@ input{font:inherit}
           </div>
           <div class="b4-buy">
             <div class="b4-top"><span class="b4-price">880 000 <em>so‘m</em></span><span class="b4-per">1 yil uchun</span></div>
-            <div class="b4-btns" id="heroCtaM"><a class="b" href="tg://resolve?domain=SelfEnguzbot&start=web" data-tg>BEPUL DARS</a><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
+            <div class="b4-btns" id="heroCtaM"><button class="b" type="button" data-open-free>BEPUL DARS</button><button class="b alt" type="button" data-open="enroll">Ma’lumot olish</button></div>
           </div>
         </div>
       </div>
@@ -672,7 +709,7 @@ input{font:inherit}
               <label class="fld"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>+998</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label>
               <span class="err" data-err="phone"></span>
               <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px" value="">
-              <div class="fs-btns"><button class="b" type="submit" data-intent="info">Ma’lumot olish</button><a class="b yel" href="tg://resolve?domain=SelfEnguzbot&start=web" data-tg>BEPUL DARS</a></div>
+              <div class="fs-btns"><button class="b yel" type="button" data-open-free>BEPUL DARS</button><button class="b" type="submit" data-intent="info">Ma’lumot olish</button></div>
               <p class="form-err" data-err="form"></p>
               <p class="form-foot"><svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.</p>
             </form>
@@ -685,6 +722,29 @@ input{font:inherit}
   </div>
 
   <div class="mbar" id="mbar"><button class="b" type="button" data-play-video>Videoni ko‘rish</button></div>
+
+  <div class="bd-overlay" id="bdOverlay" aria-hidden="true">
+    <div class="bd-modal" role="dialog" aria-modal="true" aria-labelledby="bdTitle">
+      <div class="bd-card">
+        <button class="bd-close" type="button" data-bd-close aria-label="Yopish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <div class="bd-head"><h2 id="bdTitle"><span>Bepul</span> darsni oling</h2></div>
+        <form id="bdForm" novalidate>
+          <div class="bd-field" id="bdfName">
+            <div class="bd-input"><input id="bdName" name="name" type="text" autocomplete="name" placeholder="Ism familiya" aria-label="Ism familiya" maxlength="60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <div class="bd-err">Ism familiyangizni kiriting</div>
+          </div>
+          <div class="bd-field" id="bdfPhone">
+            <div class="bd-input"><input id="bdPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="+998 90 123 45 67" aria-label="Telefon raqam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></div>
+            <div class="bd-err" role="alert">Iltimos, to‘g‘ri raqam kiriting</div>
+          </div>
+          <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px" value="">
+          <button class="bd-submit" type="submit" id="bdSubmit"><span class="bd-label">Bepul dars</span></button>
+          <p class="bd-formerr" id="bdFormErr" role="alert"></p>
+          <div class="bd-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Ma’lumotlaringiz uchinchi shaxslarga berilmaydi</div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <div class="modal" id="modal" hidden>
     <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="m-title">
@@ -824,6 +884,84 @@ const CONFIG = {
     });
   }
   $$(".lead-form").forEach(f => { if (!f.closest("#modalForm")) wireForm(f); });
+
+  /* ===== Bepul dars: modal forma (source "modal-free" -> CRM tegi WebBot) ===== */
+  (function () {
+    const overlay = $("#bdOverlay");
+    if (!overlay) return;
+    const form = $("#bdForm");
+    const nameEl = $("#bdName"), phoneEl = $("#bdPhone"), btn = $("#bdSubmit"), formErr = $("#bdFormErr");
+    const fName = $("#bdfName"), fPhone = $("#bdfPhone");
+    let opener = null;
+
+    function openFree() {
+      opener = document.activeElement;
+      form.reset();
+      btn.disabled = false;
+      formErr.textContent = "";
+      $$(".bd-field.error", form).forEach(f => f.classList.remove("error"));
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => nameEl.focus(), 250);
+    }
+    function closeFree() {
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (opener && opener.focus) opener.focus();
+    }
+    $$("[data-open-free]").forEach(b => b.addEventListener("click", openFree));
+    $$("[data-bd-close]", overlay).forEach(b => b.addEventListener("click", closeFree));
+    overlay.addEventListener("click", e => { if (e.target === overlay) closeFree(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay.classList.contains("open")) closeFree(); });
+
+    const mask = v => {
+      let d = v.replace(/\D/g, "");
+      if (d.startsWith("998")) d = d.slice(3);
+      d = d.slice(0, 9);
+      return "+998" + [d.slice(0, 2), d.slice(2, 5), d.slice(5, 7), d.slice(7, 9)].filter(Boolean).map(p => " " + p).join("");
+    };
+    const caretEnd = () => { const n = phoneEl.value.length; phoneEl.setSelectionRange(n, n); };
+    phoneEl.addEventListener("focus", () => { if (!phoneEl.value) phoneEl.value = "+998 "; setTimeout(caretEnd, 0); });
+    phoneEl.addEventListener("input", () => { phoneEl.value = mask(phoneEl.value); caretEnd(); fPhone.classList.remove("error"); });
+    phoneEl.addEventListener("blur", () => { if (phoneEl.value.trim() === "+998") phoneEl.value = ""; });
+    nameEl.addEventListener("input", () => fName.classList.remove("error"));
+
+    const nine = () => phoneEl.value.replace(/\D/g, "").replace(/^998/, "");
+    function validate() {
+      const badName = nameEl.value.trim().length < 2;
+      const badPhone = nine().length !== 9;
+      fName.classList.toggle("error", badName);
+      fPhone.classList.toggle("error", badPhone);
+      return !badName && !badPhone;
+    }
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!validate()) {
+        $$(".bd-field.error", form).forEach(f => { f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake"); });
+        const first = $(".bd-field.error input", form);
+        if (first) first.focus();
+        return;
+      }
+      btn.disabled = true;
+      formErr.textContent = "";
+      const lead = { submissionId: crypto.randomUUID(), name: nameEl.value.trim(), phone: "+998" + nine(), source: "modal-free", page: "selfeng", createdAt: new Date().toISOString(), website: form.elements.website.value };
+      try {
+        if (CONFIG.leadEndpoint) {
+          const res = await fetch(CONFIG.leadEndpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+        }
+        if (typeof fbq === "function") fbq("track", "Lead");
+        window.location.href = CONFIG.telegramUrl;
+        setTimeout(closeFree, 1200);
+      } catch (err) {
+        btn.disabled = false;
+        formErr.textContent = "Ariza yuborilmadi. Internetni tekshirib, qayta urinib ko‘ring yoki Telegram orqali yozing.";
+      }
+    });
+  })();
 
   const mbar = $("#mbar"), cta = $("#video");
   if ("IntersectionObserver" in window && mbar) {
