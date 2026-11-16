@@ -23,6 +23,9 @@ fbq('track', 'PageView');
 <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <script defer src="https://stats.selfeng.uz/script.js" data-website-id="c46d55e9-c1db-43ea-9974-f6662c529f4a"></script>
+<!-- Buzzi Stats (stats.buzzi.uz): visits, button clicks, and each form opened / really sent -->
+<script defer src="https://stats.buzzi.uz/script.js" data-website-id="f637f8fc-a924-4680-beab-b2c9469ee281" data-performance="true" data-exclude-hash="true"></script>
+<script defer src="https://stats.buzzi.uz/clicks.js"></script>
 </head><body>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2148920235703445&amp;ev=PageView&amp;noscript=1"
@@ -703,7 +706,7 @@ input{font:inherit}
         <div class="fsplit" id="inlineForm">
           <div class="fs-l"><span class="fs-lbl">Kurs narxi</span><span class="fs-price">880 000 <em>so‘m</em></span><span class="fs-per">1 yil uchun</span><ul class="fs-ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>12 yil tajriba</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>680+ videodars</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>A1 → B2 General English</li></ul></div>
           <div class="fs-r">
-            <form class="lead-form" novalidate data-source="form">
+            <form class="lead-form" novalidate data-source="form" data-buzzi-manual>
               <label class="fld"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Ismingiz" aria-label="Ismingiz" value=""></label>
               <span class="err" data-err="name"></span>
               <label class="fld"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>+998</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label>
@@ -728,7 +731,7 @@ input{font:inherit}
       <div class="bd-card">
         <button class="bd-close" type="button" data-bd-close aria-label="Yopish"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
         <div class="bd-head"><h2 id="bdTitle"><span>Bepul</span> darsni oling</h2></div>
-        <form id="bdForm" novalidate>
+        <form id="bdForm" novalidate data-buzzi-manual>
           <div class="bd-field" id="bdfName">
             <div class="bd-input"><input id="bdName" name="name" type="text" autocomplete="name" placeholder="Ism familiya" aria-label="Ism familiya" maxlength="60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
             <div class="bd-err">Ism familiyangizni kiriting</div>
@@ -753,7 +756,7 @@ input{font:inherit}
       <h2 id="m-title">Kurs haqida ma’lumot oling</h2>
       <p class="sub" id="m-sub">Ma’lumotlaringiz faqat siz bilan bog‘lanish uchun ishlatiladi.</p>
       <div id="modalForm">
-        <form class="form lead-form" novalidate data-source="modal">
+        <form class="form lead-form" novalidate data-source="modal" data-buzzi-manual>
           <div class="fwrap"><label class="fld"><input id="m-name" name="name" type="text" autocomplete="given-name" placeholder="Ismingiz" aria-label="Ismingiz" value=""></label><span class="err" data-err="name"></span></div>
           <div class="fwrap"><label class="fld"><span>+998</span><input id="m-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" aria-label="Telefon raqamingiz" value=""></label><span class="err" data-err="phone"></span></div>
           <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px" value="">
@@ -790,6 +793,8 @@ const CONFIG = {
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  /* Buzzi Stats: a form was shown, or the lead endpoint accepted it (the forms carry data-buzzi-manual) */
+  const stat = (name, step) => { if (window.buzzi) window.buzzi.form(name, step); };
   const setTg = (root) => $$("[data-tg]", root).forEach(a => { a.href = a.dataset.tg === "support" ? CONFIG.supportUrl : CONFIG.telegramUrl; });
   setTg(document);
 
@@ -818,6 +823,7 @@ const CONFIG = {
     wireForm(form);
     modal.hidden = false;
     document.body.style.overflow = "hidden";
+    stat("Ma’lumot olish", "open");
     setTimeout(() => { const n = $("#m-name"); if (n) n.focus(); }, 40);
   }
   function closeModal() {
@@ -847,6 +853,7 @@ const CONFIG = {
   $$("[data-play-video]").forEach(button => button.addEventListener("click", showIntroVideo));
 
   function wireForm(form) {
+    const statName = form.closest("#modalForm") ? "Ma’lumot olish" : "Sahifadagi forma";
     const name = $("input[name=name]", form);
     const phone = $("input[name=phone]", form);
     const clear = (inp, key) => { inp.closest(".fld").classList.remove("bad"); $("[data-err=" + key + "]", form).textContent = ""; };
@@ -875,6 +882,7 @@ const CONFIG = {
           if (!res.ok) throw new Error("HTTP " + res.status);
         }
         if (typeof fbq === "function") fbq("track", "Lead");
+        stat(statName, "sent");
         form.outerHTML = '<div class="done" role="status"><span class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#12A26B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Rahmat, ' + esc(n) + '!</h3><p>Arizangiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.</p></div>';
       } catch (err) {
         btn.disabled = false;
@@ -903,6 +911,7 @@ const CONFIG = {
       overlay.classList.add("open");
       overlay.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      stat("Bepul dars", "open");
       setTimeout(() => nameEl.focus(), 250);
     }
     function closeFree() {
@@ -954,6 +963,7 @@ const CONFIG = {
           if (!res.ok) throw new Error("HTTP " + res.status);
         }
         if (typeof fbq === "function") fbq("track", "Lead");
+        stat("Bepul dars", "sent"); // keepalive request: survives the jump to Telegram
         window.location.href = CONFIG.telegramUrl;
         setTimeout(closeFree, 1200);
       } catch (err) {
