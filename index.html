@@ -785,6 +785,8 @@ const CONFIG = {
 /* Anonim tashrif hisoblagichi: har sessiyada bir marta, tasodifiy brauzer ID bilan */
 (function () {
   if (!CONFIG.visitEndpoint) return;
+  // Buzzi Stats preview is not a visit
+  if (window.top !== window && document.referrer.indexOf("https://stats.buzzi.uz/") === 0) return;
   try {
     if (sessionStorage.getItem("se_hit")) return;
     sessionStorage.setItem("se_hit", "1");
